@@ -20,9 +20,12 @@ let package = Package(
         // Targets can depend on other targets in this package, and on products in packages which this package depends on.
         .target(
             name: "MaxMind",
-            dependencies: []),
+            dependencies: ["libmaxminddb"]),
         .testTarget(
             name: "MaxMindTests",
             dependencies: ["MaxMind"]),
+        .target(
+            name: "libmaxminddb",
+            dependencies: []),
     ]
 )

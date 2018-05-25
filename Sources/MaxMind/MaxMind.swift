@@ -85,7 +85,7 @@ final public class MaxMind {
         switch getType(list!) {
             
         case MMDB_DATA_TYPE_MAP:
-            let dict = NSMutableDictionary()
+            var dict: [String: Any] = [:]
             var size = getSize(list!)
             
             list = list?.pointee.next
@@ -109,12 +109,11 @@ final public class MaxMind {
             return (ptr: list, out: str)
             
         case MMDB_DATA_TYPE_UINT32:
-            var res: NSNumber = 0
+            var res: UInt32 = 0
             if let entryData = list?.pointee.entry_data {
                 var mutableEntryData = entryData
                 if let uint = MMDB_get_entry_data_uint32(&mutableEntryData) {
-                    let v: UInt32 = uint.pointee
-                    res = NSNumber(value: v)
+                    res = uint.pointee
                 }
             }
             list = list?.pointee.next
@@ -126,7 +125,7 @@ final public class MaxMind {
         return (ptr: list, out: nil)
     }
     
-    public func lookup(ip: String) -> NSDictionary? {
+    public func lookup(ip: String) -> [String: Any]? {
         guard let result = lookupString(ip) else {
             return nil
         }
@@ -138,7 +137,7 @@ final public class MaxMind {
             return nil
         }
         let res = self.dump(list: list)
-        if let dict = res.out, let d = dict as? NSDictionary {
+        if let dict = res.out, let d = dict as? [String: Any] {
             return d
         }
         return nil
@@ -147,6 +146,4 @@ final public class MaxMind {
     deinit {
         MMDB_close(&db)
     }
-
 }
-

@@ -5,15 +5,15 @@ public struct Country: CustomStringConvertible {
     public var isoCode = ""
     public var names = [String: String]()
 
-    init(dictionary: NSDictionary) {
-        if let dict = dictionary["continent"] as? NSDictionary,
+    init(dictionary: [String: Any]) {
+        if let dict = dictionary["continent"] as? [String: Any],
             let code = dict["code"] as? String,
             let continentNames = dict["names"] as? [String: String]
         {
             continent.code = code
             continent.names = continentNames
         }
-        if let dict = dictionary["country"] as? NSDictionary,
+        if let dict = dictionary["country"] as? [String: Any],
             let iso = dict["iso_code"] as? String,
             let countryNames = dict["names"] as? [String: String]
         {

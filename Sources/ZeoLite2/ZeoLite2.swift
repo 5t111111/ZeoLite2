@@ -1,7 +1,7 @@
 import Foundation
 import libmaxminddb
 
-final public class MaxMind {
+final public class ZeoLite2 {
     fileprivate var db = MMDB_s()
 
     fileprivate typealias ListPtr = UnsafeMutablePointer<MMDB_entry_data_list_s>

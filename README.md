@@ -1,8 +1,8 @@
-# MaxMind
+# ZeoLite2
 
 A tiny wrapper for [libmaxminddb](https://github.com/maxmind/libmaxminddb) which allows you to lookup Geo data by IP address.
 
-This product uses [GeoLite2 data](http://dev.maxmind.com/geoip/geoip2/geolite2/) created by MaxMind, available from [http://www.maxmind.com](http://www.maxmind.com).
+This product uses [GeoLite2 data](http://dev.maxmind.com/geoip/geoip2/geolite2/) created by ZeoLite2, available from [http://www.maxmind.com](http://www.maxmind.com).
 
 (Currently supports only SPM)
 
@@ -25,9 +25,9 @@ let package = Package(
 ## Usage
 
 ```swift
-import MaxMind
+import ZeoLite2
 
-guard let db = MaxMind("/path/to/database/file") else {
+guard let db = ZeoLite2("/path/to/database/file") else {
     print("Failed to open DB.")
     return
 }
@@ -45,7 +45,7 @@ Originally written by [Lex Tang](https://github.com/lexrus) (Twitter: [@lexrus](
 
 ## License
 
-MaxMind is available under the [Apache License Version 2.0](http://www.apache.org/licenses/LICENSE-2.0). See the [LICENSE](https://github.com/5t111111/MaxMind/blob/master/LICENSE) file for more info.
+ZeoLite2 is available under the [Apache License Version 2.0](http://www.apache.org/licenses/LICENSE-2.0). See the [LICENSE](https://github.com/5t111111/ZeoLite2/blob/master/LICENSE) file for more info.
 
 The GeoLite2 databases are distributed under the [Creative Commons Attribution-ShareAlike 3.0 Unported License](http://creativecommons.org/licenses/by-sa/3.0/).
 

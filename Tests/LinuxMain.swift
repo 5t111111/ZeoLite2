@@ -1,7 +1,7 @@
 import XCTest
 
-import MaxMindTests
+import ZeoLite2Tests
 
 var tests = [XCTestCaseEntry]()
-tests += MaxMindTests.allTests()
+tests += ZeoLite2Tests.allTests()
 XCTMain(tests)

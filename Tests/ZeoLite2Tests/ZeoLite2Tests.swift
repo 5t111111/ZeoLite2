@@ -1,12 +1,12 @@
 import XCTest
-@testable import MaxMind
+@testable import ZeoLite2
 
-final class MaxMindTests: XCTestCase {
-    var database: MaxMind!
+final class ZeoLite2Tests: XCTestCase {
+    var database: ZeoLite2!
     
     override func setUp() {
         super.setUp()
-        database = MaxMind("./Tests/MaxMindTests/GeoLite2-Country.mmdb")
+        database = ZeoLite2("./Tests/ZeoLite2Tests/GeoLite2-Country.mmdb")
     }
 
     func testLookup() {

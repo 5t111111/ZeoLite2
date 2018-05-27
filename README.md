@@ -16,7 +16,7 @@ import PackageDescription
 let package = Package(
     name: "YOUR_AWESOME_PROJECT",
     dependencies: [
-        .package(url: "https://github.com/5t111111/MMDB-Swift.git", .branch("master"))
+        .package(url: "https://github.com/5t111111/MMDB-Swift.git", from: "1.0.0")
     ],
     ...
 )

@@ -2,9 +2,10 @@
 
 A tiny wrapper for [libmaxminddb](https://github.com/maxmind/libmaxminddb) which allows you to lookup Geo data by IP address.
 
-This product uses [GeoLite2 data](http://dev.maxmind.com/geoip/geoip2/geolite2/) created by ZeoLite2, available from [http://www.maxmind.com](http://www.maxmind.com).
+This product uses [GeoLite2 Data](http://dev.maxmind.com/geoip/geoip2/geolite2/), but that database is not bundled due to its license.
+You should download the binary version of GeoLite2 Data from the MaxMind website.
 
-(Currently supports only SPM)
+NOTE: This product currently supports only Swift Package Manager
 
 ## Swift Package Manager
 
@@ -16,7 +17,7 @@ import PackageDescription
 let package = Package(
     name: "YOUR_AWESOME_PROJECT",
     dependencies: [
-        .package(url: "https://github.com/5t111111/MMDB-Swift.git", from: "1.0.0")
+        .package(url: "https://github.com/5t111111/ZeoLite2.git", from: "1.1.0")
     ],
     ...
 )

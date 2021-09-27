@@ -53,8 +53,8 @@ final public class ZeoLite2 {
 
         let str = MMDB_get_entry_data_char(&data)
         let size = size_t(data.data_size)
-        let cKey = mmdb_strndup(str, size)
-        let key = String(cString: cKey!)
+        let cKey = mmdb_strndup(str, size)!
+        let key = String(cString: cKey)
         free(cKey)
 
         return key
@@ -79,15 +79,15 @@ final public class ZeoLite2 {
 
         return country
     }
-    
+
     private func dump(list: ListPtr?) -> (ptr: ListPtr?, out: Any?) {
         var list = list
         switch getType(list!) {
-            
+
         case MMDB_DATA_TYPE_MAP:
             var dict: [String: Any] = [:]
             var size = getSize(list!)
-            
+
             list = list?.pointee.next
             while size > 0 && list != nil {
                 let key = getString(list!)
@@ -102,12 +102,12 @@ final public class ZeoLite2 {
                 size -= 1
             }
             return (ptr: list, out: dict)
-            
+
         case MMDB_DATA_TYPE_UTF8_STRING:
             let str = getString(list!)
             list = list?.pointee.next
             return (ptr: list, out: str)
-            
+
         case MMDB_DATA_TYPE_UINT32:
             var res: UInt32 = 0
             if let entryData = list?.pointee.entry_data {
@@ -118,18 +118,18 @@ final public class ZeoLite2 {
             }
             list = list?.pointee.next
             return (ptr: list, out: res)
-            
+
         default: ()
-            
+
         }
         return (ptr: list, out: nil)
     }
-    
+
     public func lookup(ip: String) -> [String: Any]? {
         guard let result = lookupString(ip) else {
             return nil
         }
-        
+
         var entry = result.entry
         var list: ListPtr?
         let status = MMDB_get_entry_data_list(&entry, &list)

@@ -21,7 +21,7 @@ public struct Country: CustomStringConvertible {
             self.names = countryNames
         }
     }
-    
+
     public var description: String {
         var s = "{\n"
         s += "  \"continent\": {\n"
